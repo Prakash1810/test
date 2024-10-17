@@ -1,9 +1,14 @@
 pipeline {
-    agent any 
+    agent any
+    tools {
+        maven 'maven' 
+    }
     stages {
-        stage('cloning source code') { 
+        stage('Building My Java App') { 
             steps {
-                echo "This is cloning source code"
+                echo "This is stage used to build my source code"
+                sh "mvn package"
+                
             }
         }
     }
